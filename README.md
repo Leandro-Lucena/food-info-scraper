@@ -73,7 +73,7 @@ Este é um aplicativo responsável pela visualização de dados alimentares, inc
 Primeiro, faça o clone do repositório utilizando o seguinte comando:
 
 ```bash
-git clone https://github.com/seuusuario/projeto-alimentos.git
+git clone https://github.com/Leandro-Lucena/food-info-scraper.git
 cd projeto-alimentos
 ```
 
