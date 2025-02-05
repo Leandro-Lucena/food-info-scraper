@@ -74,15 +74,15 @@ Primeiro, faça o clone do repositório utilizando o seguinte comando:
 
 ```bash
 git clone https://github.com/Leandro-Lucena/food-info-scraper.git
-cd projeto-alimentos
+cd food-info-scraper
 ```
 
 ### 2. Configure o .env no frontend:
 
-No diretório do frontend, renomeie o arquivo .env.example para .env.
+No diretório `/frontend`, renomeie o arquivo .env.example para .env.
 
 ```bash
-cp .env.example .env
+mv .env.example .env
 ```
 
 ### 3. Requisitos para Rodar o Docker Compose:
