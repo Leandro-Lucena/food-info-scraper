@@ -104,7 +104,7 @@ No diretório raiz do projeto, execute o seguinte comando:
 docker-compose up
 ```
 
-Esse comando irá construir e iniciar os containers do backend e frontend. O servidor estará disponível em http://localhost:3000.
+Esse comando irá construir e iniciar os containers do backend e frontend. O servidor estará disponível em http://localhost:3000
 
 ##
 
