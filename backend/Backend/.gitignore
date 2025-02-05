@@ -1,0 +1,51 @@
+# .NET Core
+bin/
+obj/
+
+# .NET 6.0
+.vscode/
+.idea/
+.project/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+*.swp
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows Installer files
+*.pdb
+*.exe
+*.dll
+*.bak
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Dd]istro/
+[Dd]ebug-*
+[Dd]ebug/
+Release/
+Release-*
+x64/
+x86/
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+
+# User-specific files
+.idea/
+.vscode/
+
+# .NET generated files
+*.db
+*.sqlite
+*.sqlite3
