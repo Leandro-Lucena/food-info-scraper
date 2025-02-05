@@ -3,7 +3,7 @@ WORKDIR /app
 EXPOSE 5000 5001
 ENV ASPNETCORE_URLS=http://+:5000
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
-RUN apk add --no-cache icu-libs  # Suporte a cultura e localização
+RUN apk add --no-cache icu-libs
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine AS build
 ARG configuration=Release

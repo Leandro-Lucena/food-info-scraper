@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { updateTables } from "../../services/scraper/scraperService"; // Certifique-se de que esse serviço exista
+import { updateTables } from "../../services/scraper/scraperService";
 
 export const useUpdateFoods = () => {
   const [loading, setLoading] = useState(false);
