@@ -1,6 +1,6 @@
 # Projeto de Visualização de Dados Alimentares
 
-Este é um aplicativo responsável pela visualização de dados alimentares, incluindo funcionalidades para acessar, atualizar e armazenar informações no banco de dados SQLite. O projeto também possui um scraper automatizado para extração de dados alimentares de fontes externas.
+Este é um aplicativo que permite a visualização detalhada de dados alimentares. O projeto também possui um scraper automatizado para extração de dados alimentares de fontes externas.
 
 ## Tecnologias Utilizadas
 
