@@ -1,111 +1,117 @@
-# Projeto de Visualização de Dados Alimentares
+# Food Data Visualization
 
-Este é um aplicativo que permite a visualização detalhada de dados alimentares. O projeto também possui um scraper automatizado para extração de dados alimentares de fontes externas.
+## Performance Highlight 🚀
 
-## Tecnologias Utilizadas
+This application delivers high-performance food data extraction and processing. Using C# and HtmlAgilityPack, it scrapes 5,729 pages, extracting and saving 215,494 rows into the database—all in under 5 minutes! This efficiency showcases the power of ASP.NET Core in handling large-scale web scraping and data processing.
+
+## Overview
+
+This is an application that allows detailed visualization of food data. The project also includes an automated scraper for extracting food data from external sources.
+
+## Technologies Used
 
 - C#
 - ASP.NET Core
 - SQLite
-- HtmlAgilityPack (para scraping)
+- HtmlAgilityPack (for scraping)
 - React (TypeScript)
 - Material UI
 - Docker Compose
 
-## Estrutura do Projeto
+## Project Structure
 
 ### Backend:
 
 - **Controllers:**
 
-  - `FoodController`: Gerencia operações de alimentos.
-    - `GetFoods()`: Retorna todos os alimentos do banco de dados.
-    - `GetFoodDetails(string foodCode)`: Retorna os detalhes de um alimento específico.
-  - `ScraperController`: Gerencia operações de scraping.
-    - `UpdateFoodsAsync()`: Atualiza os alimentos a partir de extração automatizada.
+  - `FoodController`: Handles food operations.
+    - `GetFoods()`: Returns all foods from the database.
+    - `GetFoodDetails(string foodCode)`: Returns the details of a specific food.
+  - `ScraperController`: Handles scraping operations.
+    - `UpdateFoodsAsync()`: Updates foods from automated extraction.
 
 - **Data:**
 
-  - `DatabaseInitializer`: Inicializa o banco e cria as tabelas.
-    - `Initialize()`: Cria as tabelas "Food" e "FoodDetails" se não existirem.
-  - **Repository**: Responsável pela interação com o banco de dados.
-    - `UpdateFoods(IEnumerable<Food>)`: Atualiza alimentos no banco.
-    - `SaveFoodDetails(List<FoodDetails>)`: Salva os detalhes dos alimentos.
-    - `GetAllFoods()`: Retorna todos os alimentos.
-    - `GetFoodDetailsByCode(string foodCode)`: Retorna detalhes de um alimento pelo código.
+  - `DatabaseInitializer`: Initializes the database and creates the tables.
+    - `Initialize()`: Creates the "Food" and "FoodDetails" tables if they do not exist.
+  - **Repository**: Responsible for interacting with the database.
+    - `UpdateFoods(IEnumerable<Food>)`: Updates foods in the database.
+    - `SaveFoodDetails(List<FoodDetails>)`: Saves food details.
+    - `GetAllFoods()`: Returns all foods.
+    - `GetFoodDetailsByCode(string foodCode)`: Returns food details by code.
 
 - **Models:**
 
-  - `Food`: Representa um alimento.
-  - `FoodDetails`: Detalhes nutricionais de um alimento.
+  - `Food`: Represents a food item.
+  - `FoodDetails`: Nutritional details of a food item.
 
 - **Services:**
 
-  - `Scraper`: Realiza scraping dos dados alimentares.
-    - `ScrapeFoodsAsync()`: Obtém a lista de alimentos e armazena no banco.
-    - `GetFoodDetailsAsync(HttpClient client, string foodCode)`: Obtém detalhes de um alimento.
+  - `Scraper`: Performs scraping of food data.
+    - `ScrapeFoodsAsync()`: Retrieves the list of foods and stores them in the database.
+    - `GetFoodDetailsAsync(HttpClient client, string foodCode)`: Retrieves details of a food item.
 
 - **Program**:
-  - Configura e inicializa o backend.
+  - Configures and initializes the backend.
 
 ### Frontend:
 
-- **Tecnologias:**
+- **Technologies:**
 
   - React (TypeScript)
   - Material UI
 
-  A aplicação exibe uma interface com duas páginas principais:
+  The application displays an interface with two main pages:
 
-  - **Página Inicial**: Exibe uma tabela com todos os alimentos e um botão para atualizar os dados. O botão aciona um processo de scraping que demora cerca de 5 minutos para buscar e gravar os dados no banco de dados SQLite. Após a atualização, os dados são persistidos no SQLite e a lista de alimentos é automaticamente carregada na tabela.
+  - **Home Page**: Displays a table with all foods and an update button. The button triggers a scraping process that takes about 5 minutes to retrieve and save the data in the SQLite database. After the update, the data is persisted in the SQLite database and the food list is automatically loaded into the table.
 
-  - **Página de Detalhes**: Ao clicar em um alimento na tabela, o usuário é redirecionado para uma nova página onde são exibidos os detalhes nutricionais do alimento. Há um botão de voltar que redireciona para a página anterior.
+  - **Details Page**: When a food item is clicked in the table, the user is redirected to a new page displaying the nutritional details of the food item. There is a back button that redirects to the previous page.
 
 ### Docker Compose:
 
-- O backend e o frontend são containerizados usando Docker Compose.
-- O banco de dados SQLite é persistido usando volumes Docker.
+- The backend and frontend are containerized using Docker Compose.
+- The SQLite database is persisted using Docker volumes.
 
-## Passos para Configuração e Execução
+## Steps for Configuration and Execution
 
-### 1. Clone o repositório:
+### 1. Clone the repository:
 
-Primeiro, faça o clone do repositório utilizando o seguinte comando:
+First, clone the repository using the following command:
 
 ```bash
 git clone https://github.com/Leandro-Lucena/food-info-scraper.git
 cd food-info-scraper
 ```
 
-### 2. Configure o .env no frontend:
+### 2. Configure the .env in the frontend:
 
-No diretório `/frontend`, renomeie o arquivo .env.example para .env.
+In the `/frontend` directory, rename the `.env.example` file to `.env`.
 
 ```bash
 mv .env.example .env
 ```
 
-### 3. Requisitos para Rodar o Docker Compose:
+### 3. Requirements to Run Docker Compose:
 
 - **Windows:**
 
-  - Certifique-se de ter o Docker Desktop instalado.
-  - Ative a virtualização no BIOS e habilite o WSL2 (Windows Subsystem for Linux 2) no Docker Desktop.
+  - Ensure Docker Desktop is installed.
+  - Enable virtualization in the BIOS and enable WSL2 (Windows Subsystem for Linux 2) in Docker Desktop.
 
 - **Linux/Mac:**
-  - Tenha o Docker Engine e o Docker Compose instalados.
-  - Verifique se você tem permissões para rodar o Docker (em Linux, pode ser necessário usar `sudo` para comandos do Docker).
+  - Have Docker Engine and Docker Compose installed.
+  - Check if you have permissions to run Docker (on Linux, you may need to use `sudo` for Docker commands).
 
-### 4. Suba os containers com Docker Compose:
+### 4. Start the containers with Docker Compose:
 
-No diretório raiz do projeto, execute o seguinte comando:
+In the project's root directory, run the following command:
 
 ```bash
 docker-compose up
 ```
 
-Esse comando irá construir e iniciar os containers do backend e frontend. O servidor estará disponível em http://localhost:3000
+This command will build and start the containers for the backend and frontend. The server will be available at http://localhost:3000
 
 ##
 
-A estrutura foi cuidadosamente organizada para fornecer uma solução escalável e de fácil manutenção, com foco na simplicidade e no uso de boas práticas de desenvolvimento. Fico à disposição para esclarecer dúvidas ou fornecer mais informações sobre o projeto.
+The structure was carefully organized to provide a scalable and easy-to-maintain solution, with a focus on simplicity and good development practices. I'm available to answer questions or provide more information about the project.
